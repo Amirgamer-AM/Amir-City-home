@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMIR CITY | طراحی خانه</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --bg:#05070b;
+    --panel:#0b1018;
+    --panel2:#101721;
+    --border:#202b38;
+    --text:#ffffff;
+    --muted:#8d98a7;
+    --cyan:#00e5ff;
+    --cyan2:#42f0ff;
+    --green:#55f3a6;
+    --red:#ff6578;
+    --yellow:#ffd95e;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:
+      radial-gradient(circle at 15% 10%,rgba(0,229,255,.08),transparent 28%),
+      radial-gradient(circle at 85% 30%,rgba(0,229,255,.05),transparent 25%),
+      var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+button,input,textarea,select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,7,11,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:1000;
+    letter-spacing:.5px;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:var(--cyan);
+    text-shadow:0 0 20px rgba(0,229,255,.35);
+}
+
+nav{
+    display:flex;
+    gap:4px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav button{
+    color:#abb5c3;
+    background:none;
+    border:0;
+    padding:10px 12px;
+    border-radius:9px;
+    transition:.2s;
+}
+
+nav button:hover{
+    color:var(--cyan);
+    background:#0d151e;
+}
+
+.adminBtn{
+    color:#fff!important;
+    background:#111923!important;
+    border:1px solid #283543!important;
+}
+
+.hero{
+    max-width:1250px;
+    margin:auto;
+    padding:100px 20px 85px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 16px;
+    border:1px solid #174956;
+    background:#08171c;
+    border-radius:999px;
+    color:var(--cyan);
+    box-shadow:0 0 30px rgba(0,229,255,.08);
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,82px);
+    line-height:1.15;
+    margin:22px 0 18px;
+    font-weight:1000;
+}
+
+.hero h1 span{
+    color:var(--cyan);
+    text-shadow:0 0 30px rgba(0,229,255,.25);
+}
+
+.hero p{
+    max-width:820px;
+    margin:auto;
+    color:#a4afbd;
+    line-height:2.15;
+    font-size:16px;
+}
+
+.heroBtns{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primary,
+.secondary{
+    border-radius:12px;
+    padding:14px 22px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.primary{
+    border:0;
+    background:var(--cyan);
+    color:#001014;
+    box-shadow:0 0 25px rgba(0,229,255,.14);
+}
+
+.primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 35px rgba(0,229,255,.24);
+}
+
+.secondary{
+    border:1px solid #293644;
+    background:#101721;
+    color:#fff;
+}
+
+.secondary:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+}
+
+section{
+    max-width:1250px;
+    margin:auto;
+    padding:65px 20px;
+}
+
+.sectionTitle{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.sectionTitle h2{
+    font-size:32px;
+    margin-bottom:9px;
+}
+
+.sectionTitle p{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:20px;
+}
+
+.aboutCard,
+.infoCard{
+    background:
+      linear-gradient(145deg,rgba(16,23,33,.96),rgba(8,12,18,.96));
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:28px;
+}
+
+.aboutCard h3,
+.infoCard h3{
+    margin-bottom:15px;
+}
+
+.aboutCard p,
+.infoCard p{
+    color:#98a3b1;
+    line-height:2;
+}
+
+.aboutList{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.aboutItem{
+    padding:12px;
+    background:#0b121a;
+    border:1px solid #1d2934;
+    border-radius:12px;
+    color:#b6c0cc;
+}
+
+/* STYLES */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:linear-gradient(145deg,#0d131c,#090d13);
+    border:1px solid var(--border);
+    border-radius:19px;
+    padding:24px;
+    transition:.22s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    background:rgba(0,229,255,.045);
+    filter:blur(35px);
+    top:-80px;
+    left:-80px;
+    border-radius:50%;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#1cbdd1;
+    box-shadow:0 12px 40px rgba(0,0,0,.25);
+}
+
+.icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.card p{
+    color:#919cab;
+    line-height:1.9;
+}
+
+/* BUILDER */
+.builder{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.preview{
+    min-height:500px;
+    background:
+      radial-gradient(circle at 50% 20%,rgba(0,229,255,.1),transparent 35%),
+      linear-gradient(145deg,#101821,#080d13);
+    border:1px solid #25313d;
+    border-radius:22px;
+    position:relative;
+    overflow:hidden;
+}
+
+.previewTop{
+    padding:18px;
+    color:#8f9aa8;
+    font-size:13px;
+}
+
+.ground{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height:95px;
+    background:#0c1613;
+    border-top:1px solid #223128;
+}
+
+.house{
+    width:280px;
+    height:180px;
+    position:absolute;
+    left:50%;
+    top:52%;
+    transform:translate(-50%,-50%);
+    background:#8a6851;
+    border:5px solid #4f382c;
+    border-radius:5px;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.roof{
+    position:absolute;
+    width:0;
+    height:0;
+    left:50%;
+    top:-87px;
+    transform:translateX(-50%);
+    border-left:165px solid transparent;
+    border-right:165px solid transparent;
+    border-bottom:100px solid #3c2a2b;
+    filter:drop-shadow(0 5px 7px rgba(0,0,0,.25));
+}
+
+.window{
+    position:absolute;
+    width:49px;
+    height:52px;
+    background:linear-gradient(145deg,#b8f7ff,#44cbdc);
+    border:5px solid #3f2e27;
+}
+
+.w1{left:25px;top:38px}
+.w2{right:25px;top:38px}
+
+.door{
+    position:absolute;
+    width:57px;
+    height:94px;
+    left:50%;
+    bottom:-1px;
+    transform:translateX(-50%);
+    background:#432c23;
+    border:4px solid #2a1d19;
+}
+
+.doorHandle{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#d4a84f;
+    position:absolute;
+    right:8px;
+    top:47px;
+}
+
+.designForm{
+    background:#0b1118;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:25px;
+}
+
+.field{
+    margin-bottom:15px;
+}
+
+.field label{
+    display:block;
+    color:#aeb7c3;
+    margin-bottom:7px;
+    font-size:13px;
+}
+
+.field input,
+.field textarea,
+.field select{
+    width:100%;
+    border:1px solid #293644;
+    border-radius:10px;
+    background:#070b10;
+    color:#fff;
+    padding:12px;
+    outline:none;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+    border-color:#00b8cc;
+}
+
+.field textarea{
+    min-height:105px;
+    resize:vertical;
+}
+
+/* BENEFITS */
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.feature{
+    background:#0b1118;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:25px 18px;
+    text-align:center;
+}
+
+.featureIcon{
+    font-size:32px;
+    margin-bottom:11px;
+}
+
+.feature p{
+    color:#8c97a5;
+    font-size:13px;
+    line-height:1.8;
+    margin-top:8px;
+}
+
+/* NEWS */
+.news{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.newsCard{
+    background:#0b1118;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:22px;
+}
+
+.newsCard h3{
+    margin-bottom:10px;
+}
+
+.newsCard p{
+    color:#96a0ad;
+    line-height:1.9;
+}
+
+.newsDate{
+    color:var(--cyan);
+    font-size:12px;
+    margin-top:14px;
+}
+
+/* SUPPORT */
+.supportBox{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:20px;
+    align-items:center;
+    background:
+      linear-gradient(145deg,#0d171e,#091017);
+    border:1px solid #1e3942;
+    border-radius:20px;
+    padding:25px;
+}
+
+.supportBox h3{
+    margin-bottom:9px;
+}
+
+.supportBox p{
+    color:#96a2af;
+    line-height:1.9;
+}
+
+.supportNumber{
+    color:var(--cyan);
+    font-size:23px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid var(--border);
+    text-align:center;
+    padding:38px 20px;
+    color:#7f8997;
+    line-height:2;
+}
+
+footer strong{
+    color:var(--cyan);
+}
+
+/* MODAL */
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(7px);
+    overflow:auto;
+}
+
+.modal{
+    width:min(570px,92%);
+    margin:5vh auto;
+    background:#0b1118;
+    border:1px solid #293543;
+    border-radius:20px;
+    padding:24px;
+    box-shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+.modalHead{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close{
+    border:0;
+    background:#18212c;
+    color:#fff;
+    width:37px;
+    height:37px;
+    border-radius:9px;
+    font-size:20px;
+}
+
+.message{
+    margin-top:12px;
+    padding:12px;
+    border-radius:10px;
+    display:none;
+}
+
+.message.error{
+    display:block;
+    color:#ff8997;
+    background:#32141a;
+}
+
+.message.success{
+    display:block;
+    color:#70ffae;
+    background:#103320;
+}
+
+/* ADMIN */
+#adminPanel{
+    display:none;
+    min-height:100vh;
+    background:#05070b;
+}
+
+.adminWrap{
+    max-width:1250px;
+    margin:auto;
+    padding:32px 20px;
+}
+
+.adminTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.adminTop p{
+    color:#84909e;
+    margin-top:6px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat,
+.adminBox{
+    background:#0b1118;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+}
+
+.stat small{
+    color:#8893a1;
+}
+
+.stat b{
+    display:block;
+    color:var(--cyan);
+    font-size:28px;
+    margin-top:8px;
+}
+
+.adminBox{
+    margin-top:20px;
+}
+
+.adminBox h2{
+    font-size:20px;
+    margin-bottom:16px;
+}
+
+.request{
+    border:1px solid #26323f;
+    border-radius:13px;
+    padding:16px;
+    margin-bottom:12px;
+    background:#0a1017;
+}
+
+.request p{
+    color:#a7b0bd;
+    margin:7px 0;
+    line-height:1.7;
+}
+
+.status{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:7px;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.waiting{
+    background:#332b0e;
+    color:var(--yellow);
+}
+
+.accepted{
+    background:#103622;
+    color:var(--green);
+}
+
+.rejected{
+    background:#35151b;
+    color:var(--red);
+}
+
+.adminBtns{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:13px;
+}
+
+.adminBtns button{
+    border:0;
+    border-radius:8px;
+    padding:9px 12px;
+}
+
+.accept{
+    background:#123d2a;
+    color:#70ffae;
+}
+
+.reject{
+    background:#3b151b;
+    color:#ff8290;
+}
+
+.delete{
+    background:#252d36;
+    color:#fff;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .about,
+    .builder{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features,
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+    .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .logo{
+        width:100%;
+        text-align:center;
+    }
+
+    nav{
+        width:100%;
+    }
+
+    nav button{
+        padding:8px 9px;
+    }
+
+    .grid,
+    .news,
+    .features,
+    .stats,
+    .aboutList{
+        grid-template-columns:1fr;
+    }
+
+    .supportBox{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .supportNumber{
+        white-space:normal;
+    }
+
+    .hero{
+        padding:65px 15px;
+    }
+
+    section{
+        padding:45px 15px;
+    }
+
+    .house{
+        transform:translate(-50%,-50%) scale(.78);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ========================= SITE ========================= -->
+<div id="site">
+
+<header>
+<div class="nav">
+
+<div class="logo">
+AMIR <span>CITY</span>
+</div>
+
+<nav>
+<button onclick="go('home')">خانه</button>
+<button onclick="go('about')">درباره سایت</button>
+<button onclick="go('styles')">سبک‌ها</button>
+<button onclick="go('builder')">طراحی خانه</button>
+<button onclick="go('news')">اخبار</button>
+<button class="adminBtn" onclick="openLogin()">⚙️ مدیریت</button>
+</nav>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+<div id="home">
+
+<div class="hero">
+
+<div class="badge">🏠 AMIR CITY HOUSE DESIGN</div>
+
+<h1>
+خانه‌ای که می‌خواهی را در
+<span>AMIR CITY</span>
+بساز
+</h1>
+
+<p>
+در AMIR CITY می‌توانید ایده خانه موردنظر خود را برای طراحی ثبت کنید.
+از خانه‌های مدرن و لوکس تا کلاسیک، ویلایی و گیمینگ؛
+مشخصات خانه را انتخاب می‌کنید و درخواست شما برای بررسی و طراحی ارسال می‌شود.
+</p>
+
+<div class="heroBtns">
+<button class="primary" onclick="go('builder')">
+🏗️ شروع طراحی خانه
+</button>
+
+<button class="secondary" onclick="go('styles')">
+✨ مشاهده سبک‌ها
+</button>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+<div class="sectionTitle">
+<h2>✨ درباره AMIR CITY</h2>
+<p>یک سیستم اختصاصی برای سفارش طراحی خانه‌های خاص</p>
+</div>
+
+<div class="about">
+
+<div class="aboutCard">
+
+<h3>🏠 این سایت برای چیست؟</h3>
+
+<p>
+AMIR CITY یک فضای اختصاصی برای طراحی و سفارش خانه است.
+شما می‌توانید سبک خانه، تعداد طبقات، تعداد اتاق‌ها و توضیحات
+اختصاصی خودتان را مشخص کنید و درخواست طراحی را ثبت کنید.
+</p>
+
+<p style="margin-top:12px">
+ایده اصلی این سایت این است که هر خانه بر اساس چیزی که مشتری
+می‌خواهد ساخته و طراحی شود؛ نه اینکه همه خانه‌ها شبیه یکدیگر باشند.
+</p>
+
+<div class="aboutList">
+
+<div class="aboutItem">🏙️ طراحی مدرن</div>
+<div class="aboutItem">👑 طراحی لوکس</div>
+<div class="aboutItem">🏛️ طراحی کلاسیک</div>
+<div class="aboutItem">🌴 طراحی ویلایی</div>
+<div class="aboutItem">🎮 طراحی گیمینگ</div>
+<div class="aboutItem">🧩 طراحی سفارشی</div>
+
+</div>
+
+</div>
+
+<div class="infoCard">
+
+<h3>⚡ روند کار</h3>
+
+<p>
+۱. سبک خانه را انتخاب کنید.
+<br>
+۲. تعداد طبقات و اتاق‌ها را مشخص کنید.
+<br>
+۳. توضیحات و ایده‌های خودتان را بنویسید.
+<br>
+۴. درخواست را ثبت کنید.
+<br>
+۵. درخواست در پنل مدیریت بررسی می‌شود.
+<br>
+۶. مدیریت می‌تواند درخواست را تأیید یا رد کند.
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- STYLES -->
+<section id="styles">
+
+<div class="sectionTitle">
+<h2>🎨 سبک‌های طراحی</h2>
+<p>سبک خانه را انتخاب کنید یا یک طرح کاملاً اختصاصی درخواست دهید.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🏙️</div>
+<h3>خانه مدرن</h3>
+<p>
+طراحی تمیز، ساده و امروزی با فرم‌های مدرن و فضای کاربردی.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">👑</div>
+<h3>خانه لوکس</h3>
+<p>
+طراحی خاص و مجلل برای کسانی که یک خانه متفاوت و چشمگیر می‌خواهند.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🏛️</div>
+<h3>خانه کلاسیک</h3>
+<p>
+الهام‌گرفته از معماری کلاسیک با ظاهر رسمی و جزئیات بیشتر.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🌴</div>
+<h3>ویلای اختصاصی</h3>
+<p>
+طراحی ویلا برای فضاهای بزرگ‌تر با امکان درخواست امکانات ویژه.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🎮</div>
+<h3>خانه گیمینگ</h3>
+<p>
+خانه‌ای با فضای ویژه برای گیمرها، اتاق گیم و محیط اختصاصی.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🧩</div>
+<h3>طراحی سفارشی</h3>
+<p>
+هر چیزی که در ذهن دارید توضیح دهید تا در درخواست طراحی ثبت شود.
+</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- BUILDER -->
+<section id="builder">
+
+<div class="sectionTitle">
+<h2>🏗️ ثبت درخواست طراحی خانه</h2>
+<p>مشخصات خانه‌ای که می‌خواهید طراحی شود را وارد کنید.</p>
+</div>
+
+<div class="builder">
+
+<div class="preview">
+
+<div class="previewTop">
+PREVIEW • AMIR CITY
+</div>
+
+<div class="house">
+
+<div class="roof"></div>
+
+<div class="window w1"></div>
+<div class="window w2"></div>
+
+<div class="door">
+<div class="doorHandle"></div>
+</div>
+
+</div>
+
+<div class="ground"></div>
+
+</div>
+
+
+<div class="designForm">
+
+<div class="field">
+<label>نام شما</label>
+<input id="customerName" type="text" placeholder="نام">
+</div>
+
+<div class="field">
+<label>سبک خانه</label>
+
+<select id="houseStyle">
+<option>مدرن</option>
+<option>لوکس</option>
+<option>کلاسیک</option>
+<option>ویلایی</option>
+<option>گیمینگ</option>
+<option>سفارشی</option>
+</select>
+
+</div>
+
+<div class="field">
+<label>تعداد طبقات</label>
+
+<select id="floors">
+<option>۱ طبقه</option>
+<option>۲ طبقه</option>
+<option>۳ طبقه</option>
+<option>۴ طبقه</option>
+<option>بیشتر</option>
+</select>
+
+</div>
+
+<div class="field">
+<label>تعداد اتاق</label>
+
+<select id="rooms">
+<option>۱ اتاق</option>
+<option>۲ اتاق</option>
+<option>۳ اتاق</option>
+<option>۴ اتاق</option>
+<option>۵ اتاق</option>
+<option>بیشتر</option>
+</select>
+
+</div>
+
+<div class="field">
+<label>امکانات موردنظر</label>
+
+<select id="facilities">
+<option>پارکینگ</option>
+<option>پارکینگ + استخر</option>
+<option>پارکینگ + اتاق گیم</option>
+<option>استخر + روف‌گاردن</option>
+<option>امکانات کاملاً سفارشی</option>
+</select>
+
+</div>
+
+<div class="field">
+<label>توضیحات و ایده‌های شما</label>
+
+<textarea id="description"
+placeholder="مثلاً: خانه مدرن دو طبقه با استخر، اتاق گیم، پارکینگ و روف‌گاردن..."></textarea>
+
+</div>
+
+<button class="primary" style="width:100%" onclick="submitRequest()">
+📦 ثبت درخواست طراحی
+</button>
+
+<div id="formMessage" class="message"></div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- FEATURES -->
+<section>
+
+<div class="sectionTitle">
+<h2>🚀 امکانات سایت</h2>
+<p>همه چیز برای ثبت و مدیریت درخواست‌های طراحی</p>
+</div>
+
+<div class="features">
+
+<div class="feature">
+<div class="featureIcon">🏠</div>
+<h3>طراحی خانه</h3>
+<p>ثبت مشخصات و ایده خانه موردنظر</p>
+</div>
+
+<div class="feature">
+<div class="featureIcon">🎨</div>
+<h3>سبک‌های مختلف</h3>
+<p>مدرن، لوکس، کلاسیک، ویلا و گیمینگ</p>
+</div>
+
+<div class="feature">
+<div class="featureIcon">📦</div>
+<h3>ثبت درخواست</h3>
+<p>ارسال مستقیم درخواست به سیستم مدیریت</p>
+</div>
+
+<div class="feature">
+<div class="featureIcon">📱</div>
+<h3>موبایل و لپ‌تاپ</h3>
+<p>طراحی واکنش‌گرا برای انواع صفحه‌نمایش</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- NEWS -->
+<section id="news">
+
+<div class="sectionTitle">
+<h2>📰 اخبار و اطلاعیه‌ها</h2>
+<p>آخرین اخبار AMIR CITY</p>
+</div>
+
+<div class="news" id="newsList"></div>
+
+</section>
+
+
+<!-- SUPPORT -->
+<section>
+
+<div class="supportBox">
+
+<div>
+<h3>💬 پشتیبانی AMIR CITY</h3>
+<p>
+برای پیگیری درخواست‌ها و ارتباط با پشتیبانی،
+در اپلیکیشن بله پیام دهید.
+</p>
+</div>
+
+<div class="supportNumber">
+۰۹۳۰۳۳۳۲۴۷۶
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<strong>By Amir Gamer</strong>
+<br>
+سازنده: امیرگیمر
+<br>
+AMIR CITY • House Design
+<br>
+پشتیبانی در اپلیکیشن بله: ۰۹۳۰۳۳۳۲۴۷۶
+
+</footer>
+
+</div>
+
+
+
+<!-- ========================= LOGIN ========================= -->
+
+<div class="overlay" id="loginOverlay">
+
+<div class="modal">
+
+<div class="modalHead">
+
+<h2>🔐 ورود مدیریت</h2>
+
+<button class="close" onclick="closeModal('loginOverlay')">
+×
+</button>
+
+</div>
+
+<div class="field">
+
+<label>رمز مدیریت</label>
+
+<input
+type="password"
+id="adminPassword"
+placeholder="رمز مدیریت"
+/>
+
+</div>
+
+<button class="primary" style="width:100%" onclick="loginAdmin()">
+ورود به پنل
+</button>
+
+<div
+id="loginMessage"
+class="message">
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ========================= ADMIN ========================= -->
+
+<div id="adminPanel">
+
+<div class="adminWrap">
+
+<div class="adminTop">
+
+<div>
+
+<h1>⚡ AMIR CITY ADMIN</h1>
+
+<p>
+مدیریت درخواست‌های طراحی و اخبار
+</p>
+
+</div>
+
+<button class="secondary" onclick="exitAdmin()">
+بازگشت به سایت
+</button>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<small>کل درخواست‌ها</small>
+<b id="statAll">0</b>
+</div>
+
+<div class="stat">
+<small>در انتظار</small>
+<b id="statWaiting">0</b>
+</div>
+
+<div class="stat">
+<small>تأیید شده</small>
+<b id="statAccepted">0</b>
+</div>
+
+<div class="stat">
+<small>رد شده</small>
+<b id="statRejected">0</b>
+</div>
+
+</div>
+
+
+<!-- REQUESTS -->
+<div class="adminBox">
+
+<h2>🏠 درخواست‌های طراحی</h2>
+
+<div id="requestsList"></div>
+
+</div>
+
+
+<!-- NEWS MANAGEMENT -->
+<div class="adminBox">
+
+<h2>📰 مدیریت اخبار</h2>
+
+<div class="field">
+<label>عنوان خبر</label>
+
+<input
+id="newsTitle"
+type="text"
+placeholder="مثلاً: 🚨 اطلاعیه جدید"
+/>
+
+</div>
+
+<div class="field">
+<label>متن خبر</label>
+
+<textarea
+id="newsText"
+placeholder="متن خبر را وارد کنید..."
+></textarea>
+
+</div>
+
+<button class="primary" onclick="addNews()">
+➕ انتشار خبر
+</button>
+
+<div
+id="adminNewsList"
+style="margin-top:20px">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   DATA
+========================= */
+
+let requests =
+JSON.parse(localStorage.getItem("amir_city_requests")) || [];
+
+let news =
+JSON.parse(localStorage.getItem("amir_city_news")) || [
+
+{
+title:"🚨 AMIR CITY افتتاح شد",
+text:"سیستم طراحی خانه AMIR CITY راه‌اندازی شد. از اینجا می‌توانید درخواست طراحی خانه مدرن، لوکس، کلاسیک، ویلایی و گیمینگ خود را ثبت کنید.",
+date:new Date().toLocaleDateString("fa-IR")
+},
+
+{
+title:"🏠 طراحی سفارشی",
+text:"درخواست‌های طراحی می‌توانند شامل جزئیات و امکانات اختصاصی موردنظر شما باشند.",
+date:new Date().toLocaleDateString("fa-IR")
+}
+
+];
+
+
+/*
+این رمز فقط برای دمو است.
+برای انتشار عمومی، احراز هویت واقعی باید سمت سرور انجام شود.
+*/
+const DEMO_ADMIN_PASSWORD = "AMIR-CITY-ADMIN";
+
+
+/* =========================
+   STORAGE
+========================= */
+
+function saveData(){
+
+localStorage.setItem(
+"amir_city_requests",
+JSON.stringify(requests)
+);
+
+localStorage.setItem(
+"amir_city_news",
+JSON.stringify(news)
+);
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function go(id){
+
+const el =
+document.getElementById(id);
+
+if(el){
+
+el.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+}
+
+
+/* =========================
+   REQUEST
+========================= */
+
+function submitRequest(){
+
+const name =
+document.getElementById("customerName")
+.value.trim();
+
+const style =
+document.getElementById("houseStyle")
+.value;
+
+const floors =
+document.getElementById("floors")
+.value;
+
+const rooms =
+document.getElementById("rooms")
+.value;
+
+const facilities =
+document.getElementById("facilities")
+.value;
+
+const description =
+document.getElementById("description")
+.value.trim();
+
+const message =
+document.getElementById("formMessage");
+
+
+if(!name){
+
+message.className="message error";
+
+message.textContent =
+"❌ لطفاً نام خود را وارد کنید.";
+
+return;
+
+}
+
+
+requests.unshift({
+
+id:Date.now(),
+
+name:name,
+
+style:style,
+
+floors:floors,
+
+rooms:rooms,
+
+facilities:facilities,
+
+description:
+description || "بدون توضیحات",
+
+status:"waiting",
+
+date:
+new Date().toLocaleString("fa-IR")
+
+});
+
+
+saveData();
+
+
+document.getElementById("customerName").value="";
+document.getElementById("description").value="";
+
+
+message.className="message success";
+
+message.textContent =
+"✅ درخواست شما با موفقیت ثبت شد و برای مدیریت ارسال شد.";
+
+}
+
+
+/* =========================
+   NEWS
+========================= */
+
+function renderNews(){
+
+const list =
+document.getElementById("newsList");
+
+list.innerHTML =
+news.map(item=>`
+
+<div class="newsCard">
+
+<h3>${escapeHTML(item.title)}</h3>
+
+<p>
+${escapeHTML(item.text)}
+</p>
+
+<div class="newsDate">
+${escapeHTML(item.date)}
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function openLogin(){
+
+document.getElementById(
+"loginOverlay"
+).style.display="block";
+
+}
+
+
+function closeModal(id){
+
+document.getElementById(id)
+.style.display="none";
+
+}
+
+
+function loginAdmin(){
+
+const password =
+document.getElementById("adminPassword")
+.value;
+
+const message =
+document.getElementById("loginMessage");
+
+if(password===DEMO_ADMIN_PASSWORD){
+
+closeModal("loginOverlay");
+
+document.getElementById("site")
+.style.display="none";
+
+document.getElementById("adminPanel")
+.style.display="block";
+
+document.getElementById("adminPassword")
+.value="";
+
+renderAdmin();
+
+}else{
+
+message.className="message error";
+
+message.textContent =
+"❌ رمز ورود صحیح نیست.";
+
+}
+
+}
+
+
+function exitAdmin(){
+
+document.getElementById("adminPanel")
+.style.display="none";
+
+document.getElementById("site")
+.style.display="block";
+
+}
+
+
+/* =========================
+   ADMIN DASHBOARD
+========================= */
+
+function renderAdmin(){
+
+const waiting =
+requests.filter(
+x=>x.status==="waiting"
+).length;
+
+const accepted =
+requests.filter(
+x=>x.status==="accepted"
+).length;
+
+const rejected =
+requests.filter(
+x=>x.status==="rejected"
+).length;
+
+
+document.getElementById("statAll")
+.textContent=requests.length;
+
+document.getElementById("statWaiting")
+.textContent=waiting;
+
+document.getElementById("statAccepted")
+.textContent=accepted;
+
+document.getElementById("statRejected")
+.textContent=rejected;
+
+
+renderRequests();
+renderAdminNews();
+
+}
+
+
+/* =========================
+   REQUESTS ADMIN
+========================= */
+
+function renderRequests(){
+
+const box =
+document.getElementById("requestsList");
+
+
+if(!requests.length){
+
+box.innerHTML=
+"<p style='color:#8993a1'>هنوز درخواستی ثبت نشده است.</p>";
+
+return;
+
+}
+
+
+box.innerHTML =
+requests.map((x,i)=>`
+
+<div class="request">
+
+<b>
+🏠 درخواست شماره ${requests.length-i}
+</b>
+
+<p>
+👤 نام: ${escapeHTML(x.name)}
+</p>
+
+<p>
+🎨 سبک: ${escapeHTML(x.style)}
+</p>
+
+<p>
+🏢 طبقات: ${escapeHTML(x.floors)}
+</p>
+
+<p>
+🛏️ اتاق‌ها: ${escapeHTML(x.rooms)}
+</p>
+
+<p>
+✨ امکانات: ${escapeHTML(x.facilities)}
+</p>
+
+<p>
+📝 توضیحات: ${escapeHTML(x.description)}
+</p>
+
+<p>
+📅 تاریخ: ${escapeHTML(x.date)}
+</p>
+
+<span class="status ${
+x.status==="waiting"
+?"waiting"
+:x.status==="accepted"
+?"accepted"
+:"rejected"
+}">
+
+${
+x.status==="waiting"
+?"در انتظار بررسی"
+:x.status==="accepted"
+?"تأیید شده"
+:"رد شده"
+}
+
+</span>
+
+<div class="adminBtns">
+
+<button
+class="accept"
+onclick="changeRequest(${x.id},'accepted')">
+
+✅ قبول
+
+</button>
+
+<button
+class="reject"
+onclick="changeRequest(${x.id},'rejected')">
+
+❌ رد
+
+</button>
+
+<button
+class="delete"
+onclick="deleteRequest(${x.id})">
+
+🗑 حذف
+
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================
+   REQUEST STATUS
+========================= */
+
+function changeRequest(id,status){
+
+const item =
+requests.find(x=>x.id===id);
+
+if(!item)return;
+
+item.status=status;
+
+saveData();
+
+renderAdmin();
+
+if(status==="accepted"){
+
+alert(
+"✅ درخواست با موفقیت تأیید شد."
+);
+
+}else{
+
+alert(
+"❌ درخواست رد شد."
+);
+
+}
+
+}
+
+
+function deleteRequest(id){
+
+requests =
+requests.filter(
+x=>x.id!==id
+);
+
+saveData();
+
+renderAdmin();
+
+}
+
+
+/* =========================
+   NEWS ADMIN
+========================= */
+
+function addNews(){
+
+const title =
+document.getElementById("newsTitle")
+.value.trim();
+
+const text =
+document.getElementById("newsText")
+.value.trim();
+
+if(!title || !text){
+
+alert(
+"⚠️ عنوان و متن خبر را وارد کنید."
+);
+
+return;
+
+}
+
+
+news.unshift({
+
+title:title,
+
+text:text,
+
+date:
+new Date().toLocaleDateString("fa-IR")
+
+});
+
+
+saveData();
+
+document.getElementById("newsTitle").value="";
+document.getElementById("newsText").value="";
+
+renderNews();
+renderAdminNews();
+
+alert(
+"✅ خبر با موفقیت منتشر شد."
+);
+
+}
+
+
+function renderAdminNews(){
+
+const box =
+document.getElementById("adminNewsList");
+
+
+box.innerHTML =
+news.map((x,i)=>`
+
+<div class="request">
+
+<b>
+${escapeHTML(x.title)}
+</b>
+
+<p>
+${escapeHTML(x.text)}
+</p>
+
+<p>
+📅 ${escapeHTML(x.date)}
+</p>
+
+<button
+class="delete"
+onclick="deleteNews(${i})">
+
+🗑 حذف خبر
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+function deleteNews(index){
+
+news.splice(index,1);
+
+saveData();
+
+renderNews();
+renderAdminNews();
+
+}
+
+
+/* =========================
+   SECURITY HELPER
+========================= */
+
+function escapeHTML(value){
+
+return String(value)
+
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+renderNews();
+
+</script>
+
+</body>
+</html>
